@@ -1,0 +1,219 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125345968-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-125345968-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Country-level Social Cost of Carbon explorer</title>
+    <meta name="description" content="Country-level Social Cost of Carbon explorer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="/favicon.ico" />
+
+    <link rel="stylesheet" href="main.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container">
+        <div id='header'>
+            <h2 class="cautious">&beta;-version &mdash; do not share or cite.</h2>
+            <h1 class="title">Country-level Social Cost of Carbon explorer</h1>
+        </div>
+        <div id='viz'>
+
+            <div id="toolbar">
+                View:
+                <a href="#" id="bubble" class="button active">Global</a>
+                <a href="#" id="lorenz" class="button">Lorenz curve</a>
+                <a href="#" id="worldmap" class="button">Map</a>
+            </div>
+
+            <div id="toolbar_ssp">
+                <span class='selrcp'>Future projection</span>:
+                <a href="#" id="ssp1" class="ssp">SSP1/RCP60</a>
+                <a href="#" id="ssp2" class="ssp active">SSP2/RCP60</a>
+                <a href="#" id="ssp3" class="ssp">SSP3/RCP85</a>
+                <a href="#" id="ssp4" class="ssp">SSP4/RCP60</a>
+                <a href="#" id="ssp5" class="ssp">SSP5/RCP85</a>
+            </div>
+
+            <div id="cscc">
+            </div>
+
+            <div id='row_gscc'>
+                <h1 class="title_gscc">Global Social Cost of Carbon:
+                    <span id='gscc'>418</span>
+                    USD/tCO<sub>2</sub> [<span id='gscc_l'>177</span>;<span id='gscc_h'>806</span>]</h1>
+                    <p>Values are median estimates generated with the <span id='txtdmg' class='seldmg'>BHM SR</span> damage function
+                        and <span id='txtdisc' class='seldisc'>an endogenous discount rate</span>. 
+                    The range is the 66.7% confidence interval.
+                    </p>
+            </div>
+
+        <div id="select-dmgfun" class="hidden">
+                <p style="text-align: left;margin:  0px;">
+                <input type="radio" name="dmgfun" value="1" checked> BHM SR<br>
+                <input type="radio" name="dmgfun" value="2"> BHM RP SR<br>
+                <input type="radio" name="dmgfun" value="3"> BHM LR<br>
+                <input type="radio" name="dmgfun" value="4"> BHM RP LR
+                </p>
+        </div>
+
+        <div id="select-discount" class="hidden">
+                <p style="text-align: left;margin:  0px;">
+                <input type="radio" name="discount" value="1" checked> endogenous<br>
+                <input type="radio" name="discount" value="2"> fixed, 3%<br>
+                </p>
+        </div>
+
+        <div id="select-rcp" class="hidden">
+                <p style="text-align: left;margin:  0px;"> SSP with <br>
+                <input type="radio" name="rcp" value="1" checked> the closest RCP<br>
+                <input type="radio" name="rcp" value="2"> RCP4.5<br>
+                <input type="radio" name="rcp" value="3"> RCP6.0<br>
+                <input type="radio" name="rcp" value="4"> RCP8.5
+                </p>
+        </div>
+
+    </div>
+
+    <div id="share">
+        <p> 
+            <a href="#" alt="Share on Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" alt="Share on Facebook"><i class="fab fa-twitter-square"></i></a>
+            <a href="#" alt="Email"><i class="fas fa-envelope-square"></i></a>
+        </p>
+    </div>
+
+    <hr>
+
+        <div id="explanation" >
+
+            <h2>Main Reference</h2>
+
+                <p> 
+                        K. Ricke, L. Drouet, M. Tavoni and K. Caldeira, 
+                        <em>Country-level Social Cost of Carbon</em>,
+                        <b>Nature Climate Change</b>. accepted.
+                </p>
+
+                <p> This page has been designed and developed by 
+                    L. Drouet. <!--The database is available at ...--></p>
+
+                <hr>
+
+                <h2>Additional Information</h2>
+
+                <h3>Future projection</h3>
+
+                <p>Country-level population and GDP projections are issued from the
+                        <a target="_blank" href="https://tntcat.iiasa.ac.at/SspDb">Shared Socioeconomic Pathways (SSP) database</a>. Gridded climate projections are based on the
+                        <a target="_blank" href="https://tntcat.iiasa.ac.at/RcpDb">Representative Concentration Pathways (RCP)</a> and were generated by climate
+                         models participating to <a href="https://cmip.llnl.gov/cmip5/" target="_blank">CMIP5</a>.
+                        By default, the SSP  are projected along with the closest RCP in terms of radiative forcing.
+                    </p>
+
+                    <img class="methodology" src="img/rcp.png" alt="SSP/RCP mapping">
+
+                <h2>Damage function specifications</h2>
+
+                <p>
+                    The database contains four specifications of the damage function
+                    (see ref. <a href="https://www.nature.com/articles/nature15725" target="_blank">Burke, Hsiang and Miguel, 2015</a> (BHM)).
+                    They are listed in the Table below.
+    
+                    The <b>Short-range</b> specifications takes into account the temperature effects from the one year to the previous year, while 
+                    <b>Long-range</b> it is over the 5 previous years.
+
+                    A variant <b>Rich/Poor</b> distinguishes the effect between rich and poor countries. By default, all countries are considered in one pool.
+                    
+                    Note that the specifications do not have the same statistical robustness and the is refected in the reported uncertainty range. 
+                </p>
+
+                <div class="table">
+                    <div class="table-content">	
+                        <div class="table-row">		
+                            <div class="table-item"><b>BHM SR</b></div>
+                            <div class="table-data">Short-range</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-item"><b>BHM SR RP</b></div>
+                            <div class="table-data">Short-range and Rich/Poor</div>
+                        </div>
+                        <div class="table-row">		
+                            <div class="table-item"><b>BHM LR</b></div>
+                            <div class="table-data">Long-range</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-item"><b>BHM LR RP</b></div>
+                            <div class="table-data">Long-range and Rich/Poor</div>
+                        </div>
+                    </div>	
+                </div>
+
+
+                <h2>Discounting</h2>
+
+                The database contains the net present values of CSCC which are computed by discounting. Two types of discounting have used. 
+                While the fixed discount rate uses a unique value, the growth-adjusted discount rate accounts for 
+                the domestic growth rate and, thus differs across countries.
+
+
+                <div class="table">
+                    <div class="table-content">	
+                        <div class="table-row">		
+                            <div class="table-item"><b>Growth-adjusted</b></div>
+                            <div class="table-data">Pure rate of time preference + Elasticity of intertemporal substitution	&times; Country average growth rate</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-item"><b>Fixed</b></div>
+                            <div class="table-data">Fixed value of 3% per year</div>
+                        </div>
+                    </div>	
+                </div>
+
+
+                <h2>Uncertainty</h2>
+
+                In the interactive chart, the uncertainty measure reports the ratio between the confidence interval range and the median
+                value of the GSCC. So, it relates to the accuracy of an individual CSCC in the global context, 
+                when all the others CSCC are kept fixed. 
+
+        </div>
+    </div>
+
+    <div id="footer" >
+        <div id="credentials">
+                <img 
+                class="flag"
+                src="img/Flag_of_Europe.svg" 
+                alt="EU"
+                width="100px" />
+            This page project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 642147 (CD-LINKS). <br/>
+        </div>
+        <div id="version">
+            CSCC explorer v0.99beta
+        </div>
+    </div>
+
+    <script src="bundle.js"></script>
+
+</body>
+
+</html>
