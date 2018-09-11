@@ -3,15 +3,15 @@
 
 <head>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125345968-1"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125345968-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    gtag('config', 'UA-125345968-1');
-    </script>
+  gtag('config', 'UA-125345968-1');
+</script>
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -45,7 +45,7 @@
             </div>
 
             <div id="toolbar_ssp">
-                <span class='selrcp'>Future projection</span>:
+                <span class='selrcp'>Socio-economic/climate projection</span>:
                 <a href="#" id="ssp1" class="ssp">SSP1/RCP60</a>
                 <a href="#" id="ssp2" class="ssp active">SSP2/RCP60</a>
                 <a href="#" id="ssp3" class="ssp">SSP3/RCP85</a>
@@ -68,25 +68,27 @@
 
         <div id="select-dmgfun" class="hidden">
                 <p style="text-align: left;margin:  0px;">
-                <input type="radio" name="dmgfun" value="1" checked> BHM SR<br>
-                <input type="radio" name="dmgfun" value="2"> BHM RP SR<br>
-                <input type="radio" name="dmgfun" value="3"> BHM LR<br>
-                <input type="radio" name="dmgfun" value="4"> BHM RP LR
+                    Damage function:<br/>
+                <input type="radio" name="dmgfun" value="1" checked> BHM Short-range (SR)<br/>
+                <input type="radio" name="dmgfun" value="2"> BHM Rich/Poor Short-range (RP SR)<br/>
+                <input type="radio" name="dmgfun" value="3"> BHM Long-range (LR)<br/>
+                <input type="radio" name="dmgfun" value="4"> BHM Rich/Poor Long-range (RP LR)
                 </p>
         </div>
 
         <div id="select-discount" class="hidden">
                 <p style="text-align: left;margin:  0px;">
-                <input type="radio" name="discount" value="1" checked> endogenous<br>
-                <input type="radio" name="discount" value="2"> fixed, 3%<br>
+                    Discounting:<br/>
+                <input type="radio" name="discount" value="1" checked> endogenous<br/>
+                <input type="radio" name="discount" value="2"> fixed, 3%<br/>
                 </p>
         </div>
 
         <div id="select-rcp" class="hidden">
-                <p style="text-align: left;margin:  0px;"> SSP with <br>
-                <input type="radio" name="rcp" value="1" checked> the closest RCP<br>
-                <input type="radio" name="rcp" value="2"> RCP4.5<br>
-                <input type="radio" name="rcp" value="3"> RCP6.0<br>
+                <p style="text-align: left;margin:  0px;"> <abbr title="Shared Socioeconomic Pathways">SSPs</abbr> with <br/>
+                <input type="radio" name="rcp" value="1" checked> the closest <abbr title="Representative Concentration Pathways">RCP</abbr><br/>
+                <input type="radio" name="rcp" value="2"> RCP4.5<br/>
+                <input type="radio" name="rcp" value="3"> RCP6.0<br/>
                 <input type="radio" name="rcp" value="4"> RCP8.5
                 </p>
         </div>
@@ -191,9 +193,9 @@
 
                 <h2>Uncertainty</h2>
 
-                In the interactive chart, the uncertainty measure reports the ratio between the confidence interval range and the median
-                value of the GSCC. So, it relates to the accuracy of an individual CSCC in the global context, 
-                when all the others CSCC are kept fixed. 
+                In the interactive chart, the uncertainty value is equal to the confidence interval size normalized to the median
+                value of the global social cost of carbon (GSCC). It provides a measure of the accurary of the individual 
+                country-level social cost of carbon. 0 means very accurate while 1 means not accurate.
 
         </div>
     </div>
