@@ -3,15 +3,15 @@
 
 <head>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125345968-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125345968-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'UA-125345968-1');
-</script>
+    gtag('config', 'UA-125345968-1');
+    </script>
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -38,19 +38,24 @@
         <div id='viz'>
 
             <div id="toolbar">
-                View:
+                <span class="lbltool">View:</span>
                 <a href="#" id="bubble" class="button active">Global</a>
                 <a href="#" id="lorenz" class="button">Lorenz curve</a>
                 <a href="#" id="worldmap" class="button">Map</a>
             </div>
 
             <div id="toolbar_ssp">
-                <span class='selrcp'>Socio-economic/climate projection</span>:
+                <span class="lbltool">Future projection:</span>
                 <a href="#" id="ssp1" class="ssp">SSP1/RCP60</a>
                 <a href="#" id="ssp2" class="ssp active">SSP2/RCP60</a>
                 <a href="#" id="ssp3" class="ssp">SSP3/RCP85</a>
                 <a href="#" id="ssp4" class="ssp">SSP4/RCP60</a>
-                <a href="#" id="ssp5" class="ssp">SSP5/RCP85</a>
+                <a href="#" id="ssp5" class="ssp">SSP5/RCP85</a> <span class='selrcp'><i class="far fa-arrow-alt-circle-down"></i></span>
+            </div>
+
+            <div id="toolbar_dmg">
+                <span class="lbltool">Damage:</span> <span class='seldmg'><span id='txtdmg'>BHM SR</span> <i class="far fa-arrow-alt-circle-down"></i></span>
+                <span class="lbltool discounting">Discounting:</span> <span class='seldisc'><span id='txtdisc'>Growth-adjusted</span> <i class="far fa-arrow-alt-circle-down"></i></span>
             </div>
 
             <div id="cscc">
@@ -58,48 +63,44 @@
 
             <div id='row_gscc'>
                 <h1 class="title_gscc">Global Social Cost of Carbon:
-                    <span id='gscc'>418</span>
+                    <span class="gscc" id='gscc'>418</span>
                     USD/tCO<sub>2</sub> [<span id='gscc_l'>177</span>;<span id='gscc_h'>806</span>]</h1>
-                    <p>Values are median estimates generated with the <span id='txtdmg' class='seldmg'>BHM SR</span> damage function
-                        and <span id='txtdisc' class='seldisc'>an endogenous discount rate</span>. 
-                    The range is the 66.7% confidence interval.
-                    </p>
             </div>
 
         <div id="select-dmgfun" class="hidden">
                 <p style="text-align: left;margin:  0px;">
-                    Damage function:<br/>
-                <input type="radio" name="dmgfun" value="1" checked> BHM Short-range (SR)<br/>
-                <input type="radio" name="dmgfun" value="2"> BHM Rich/Poor Short-range (RP SR)<br/>
-                <input type="radio" name="dmgfun" value="3"> BHM Long-range (LR)<br/>
-                <input type="radio" name="dmgfun" value="4"> BHM Rich/Poor Long-range (RP LR)
+                    Select damage function:<br/>
+                <input type="radio" name="dmgfun" value="1" checked> BHM SR: short-run<br/>
+                <input type="radio" name="dmgfun" value="2"> BHM RP SR: rich/poor short-run<br/>
+                <input type="radio" name="dmgfun" value="3"> BHM LR: long-run<br/>
+                <input type="radio" name="dmgfun" value="4"> BHM RP LR: rich/poor long-run
                 </p>
         </div>
 
         <div id="select-discount" class="hidden">
                 <p style="text-align: left;margin:  0px;">
                     Discounting:<br/>
-                <input type="radio" name="discount" value="1" checked> endogenous<br/>
-                <input type="radio" name="discount" value="2"> fixed, 3%<br/>
+                <input type="radio" name="discount" value="1" checked> Growth-adjusted<br/>
+                <input type="radio" name="discount" value="2"> Fixed (3%)<br/>
                 </p>
         </div>
 
         <div id="select-rcp" class="hidden">
-                <p style="text-align: left;margin:  0px;"> <abbr title="Shared Socioeconomic Pathways">SSPs</abbr> with <br/>
-                <input type="radio" name="rcp" value="1" checked> the closest <abbr title="Representative Concentration Pathways">RCP</abbr><br/>
-                <input type="radio" name="rcp" value="2"> RCP4.5<br/>
-                <input type="radio" name="rcp" value="3"> RCP6.0<br/>
-                <input type="radio" name="rcp" value="4"> RCP8.5
+                <p style="text-align: left;margin:  0px;"> Additionnal <abbr title="Shared Socioeconomic Pathways">SSPs</abbr>/<abbr title="Representative Concentration Pathways">RCP</abbr> combinations:<br/>
+                <input type="radio" name="rcp" value="1" checked> SSPs with the closest RCP<br/>
+                <input type="radio" name="rcp" value="2"> SSPs with RCP4.5<br/>
+                <input type="radio" name="rcp" value="3"> SSPs with RCP6.0<br/>
+                <input type="radio" name="rcp" value="4"> SSPs with RCP8.5
                 </p>
         </div>
 
     </div>
 
     <div id="share">
-        <p> 
-            <a href="#" alt="Share on Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" alt="Share on Facebook"><i class="fab fa-twitter-square"></i></a>
-            <a href="#" alt="Email"><i class="fas fa-envelope-square"></i></a>
+        <p class="smlrow"> 
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//country-level-scc.github.io/explorer" alt="Share on facebook"><i class="fab fa-facebook"></i></a>
+            <a target="_blank" href="https://twitter.com/home?status=https%3A//country-level-scc.github.io/explorer"" alt="Share on twitter"><i class="fab fa-twitter-square"></i></a>
+            <a href="mailto:?subject=Country-level social cost of carbon explorer&amp;body=https%3A//country-level-scc.github.io/explorer/" alt="Share by email"><i class="fas fa-envelope-square"></i></a>
         </p>
     </div>
 
@@ -107,16 +108,31 @@
 
         <div id="explanation" >
 
-            <h2>Main Reference</h2>
+            <h2>Methodology</h2>
 
-                <p> 
-                        K. Ricke, L. Drouet, M. Tavoni and K. Caldeira, 
-                        <em>Country-level Social Cost of Carbon</em>,
-                        <b>Nature Climate Change</b>. accepted.
+                <p>Each bubble represents one of 169 countries. The information related to a country is summarized 
+                    in a tooltip window when you hover the bubble. 
+                    The area of the bubble is scale to the median estimates of the country-level social cost of carbon (CSCC).
+                    The color of the bubble follows a 3 dimension palette to span the CSCC values and the 
+                    66.7% confidence interval size (see <a href="#uncertainty">Uncertainty</a> below). The <b>Global</b> view shows
+                    the aggregation of the bubbles in two groups positive and negative CSCC. The <b>Lorenz curve</b> presents the 
+                    cumulative CSCC against the the cumulative country population, to highlight the level of heterogeneity of the CSCC.
+                    The <b>Map</b> plots the bubbles according to their location in longitude and latitude.
                 </p>
 
-                <p> This page has been designed and developed by 
-                    L. Drouet. <!--The database is available at ...--></p>
+                <p>
+                    This work is based on "K. Ricke, L. Drouet, K. Caldeira and M. Tavoni, 
+                        <em>Country-level Social Cost of Carbon</em>,
+                        <b>Nature Climate Change</b>". The paper is available here: <a href="https://doi.org/10.1038/s41558-018-0282-y">doi:10.1038/
+                        s41558-018-0282-y</a>.
+                        The database is available as supplementary material of the paper.
+                  Interactive Figures from the paper are available at
+                  <a target="_blank" href="http://country-level-scc.github.io/figures">http://country-level-scc.github.io/figures</a>.
+                </p>
+
+                <p>
+                        The interactive explorer in this page has been designed and developed by L. Drouet.
+                </p>
 
                 <hr>
 
@@ -140,8 +156,8 @@
                     (see ref. <a href="https://www.nature.com/articles/nature15725" target="_blank">Burke, Hsiang and Miguel, 2015</a> (BHM)).
                     They are listed in the Table below.
     
-                    The <b>Short-range</b> specifications takes into account the temperature effects from the one year to the previous year, while 
-                    <b>Long-range</b> it is over the 5 previous years.
+                    The <b>Short-run</b> specifications takes into account the temperature effects from the one year to the previous year, while 
+                    <b>Long-run</b> it is over the 5 previous years.
 
                     A variant <b>Rich/Poor</b> distinguishes the effect between rich and poor countries. By default, all countries are considered in one pool.
                     
@@ -152,19 +168,19 @@
                     <div class="table-content">	
                         <div class="table-row">		
                             <div class="table-item"><b>BHM SR</b></div>
-                            <div class="table-data">Short-range</div>
+                            <div class="table-data">Short-run</div>
                         </div>
                         <div class="table-row">
                             <div class="table-item"><b>BHM SR RP</b></div>
-                            <div class="table-data">Short-range and Rich/Poor</div>
+                            <div class="table-data">Short-run and Rich/Poor</div>
                         </div>
                         <div class="table-row">		
                             <div class="table-item"><b>BHM LR</b></div>
-                            <div class="table-data">Long-range</div>
+                            <div class="table-data">Long-run</div>
                         </div>
                         <div class="table-row">
                             <div class="table-item"><b>BHM LR RP</b></div>
-                            <div class="table-data">Long-range and Rich/Poor</div>
+                            <div class="table-data">Long-run and Rich/Poor</div>
                         </div>
                     </div>	
                 </div>
@@ -181,7 +197,7 @@
                     <div class="table-content">	
                         <div class="table-row">		
                             <div class="table-item"><b>Growth-adjusted</b></div>
-                            <div class="table-data">Pure rate of time preference + Elasticity of intertemporal substitution	&times; Country average growth rate</div>
+                            <div class="table-data">Pure rate of time preference + Elasticity of marginal utility &times; Country average growth rate</div>
                         </div>
                         <div class="table-row">
                             <div class="table-item"><b>Fixed</b></div>
@@ -193,10 +209,9 @@
 
                 <h2>Uncertainty</h2>
 
-                In the interactive chart, the uncertainty value is equal to the confidence interval size normalized to the median
-                value of the global social cost of carbon (GSCC). It provides a measure of the accurary of the individual 
-                country-level social cost of carbon. 0 means very accurate while 1 means not accurate.
-
+                In the interactive chart, the uncertainty value is equal to the size of the 66.7% confidence interval normalized to the median
+                value of the global social cost of carbon (GSCC). This provides a measure of the accurary of the 
+                country-level social cost of carbon.
         </div>
     </div>
 
@@ -210,7 +225,7 @@
             This page project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 642147 (CD-LINKS). <br/>
         </div>
         <div id="version">
-            CSCC explorer v0.99beta
+            CSCC explorer v1.00
         </div>
     </div>
 
