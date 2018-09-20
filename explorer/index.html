@@ -12,14 +12,14 @@
 
     gtag('config', 'UA-125345968-1');
     </script>
-
+    
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Country-level Social Cost of Carbon explorer</title>
     <meta name="description" content="Country-level Social Cost of Carbon explorer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href="img/icon.png" />
 
     <link rel="stylesheet" href="main.css">
 
@@ -32,8 +32,7 @@
 <body>
     <div class="container">
         <div id='header'>
-            <h2 class="cautious">&beta;-version &mdash; do not share or cite.</h2>
-            <h1 class="title">Country-level Social Cost of Carbon explorer</h1>
+            <h1 class="title">Country-level Social Cost of Carbon / <span class="subtitle">Database Explorer</span></h1>
         </div>
         <div id='viz'>
 
@@ -50,12 +49,17 @@
                 <a href="#" id="ssp2" class="ssp active">SSP2/RCP60</a>
                 <a href="#" id="ssp3" class="ssp">SSP3/RCP85</a>
                 <a href="#" id="ssp4" class="ssp">SSP4/RCP60</a>
-                <a href="#" id="ssp5" class="ssp">SSP5/RCP85</a> <span class='selrcp'><i class="far fa-arrow-alt-circle-down"></i></span>
+                <a href="#" id="ssp5" class="ssp">SSP5/RCP85</a> 
+                <span class='selrcp'><i class="far fa-arrow-alt-circle-down"></i></span>
             </div>
 
             <div id="toolbar_dmg">
-                <span class="lbltool">Damage:</span> <span class='seldmg'><span id='txtdmg'>BHM SR</span> <i class="far fa-arrow-alt-circle-down"></i></span>
-                <span class="lbltool discounting">Discounting:</span> <span class='seldisc'><span id='txtdisc'>Growth-adjusted</span> <i class="far fa-arrow-alt-circle-down"></i></span>
+                <span class="lbltool">Damage:</span> 
+                <span class='seldmg'><span id='txtdmg'>BHM SR</span> 
+                <i class="far fa-arrow-alt-circle-down"></i></span>
+                <span class="lbltool discounting">Discounting:</span> 
+                <span class='seldisc'><span id='txtdisc'>Growth-adjusted</span> 
+                <i class="far fa-arrow-alt-circle-down"></i></span>
             </div>
 
             <div id="cscc">
@@ -86,11 +90,15 @@
         </div>
 
         <div id="select-rcp" class="hidden">
-                <p style="text-align: left;margin:  0px;"> Additionnal <abbr title="Shared Socioeconomic Pathways">SSPs</abbr>/<abbr title="Representative Concentration Pathways">RCP</abbr> combinations:<br/>
+                <p style="text-align: left;margin:  0px;"> Additionnal SSP/<abbr title="Representative Concentration Pathways">RCP</abbr> combinations:<br/>
                 <input type="radio" name="rcp" value="1" checked> SSPs with the closest RCP<br/>
-                <input type="radio" name="rcp" value="2"> SSPs with RCP4.5<br/>
-                <input type="radio" name="rcp" value="3"> SSPs with RCP6.0<br/>
-                <input type="radio" name="rcp" value="4"> SSPs with RCP8.5
+                <input type="radio" name="rcp" value="2"> SSPs with RCP4.5 (&asymp; +2.5C in 2100)<br/>
+                <input type="radio" name="rcp" value="3"> SSPs with RCP6.0 (&asymp; +3C in 2100)<br/>
+                <input type="radio" name="rcp" value="4"> SSPs with RCP8.5 (&asymp;+4.5C in 2100)
+                </p>
+                <p style="text-align:center;margin:  0px;">
+                    <b>The Shared Socioeconomic Pathways (SSPs)</b>:<br/>
+                    <img src="img/ssp.png" alt="SSP">
                 </p>
         </div>
 
@@ -114,10 +122,14 @@
                     in a tooltip window when you hover the bubble. 
                     The area of the bubble is scale to the median estimates of the country-level social cost of carbon (CSCC).
                     The color of the bubble follows a 3 dimension palette to span the CSCC values and the 
-                    66.7% confidence interval size (see <a href="#uncertainty">Uncertainty</a> below). The <b>Global</b> view shows
-                    the aggregation of the bubbles in two groups positive and negative CSCC. The <b>Lorenz curve</b> presents the 
-                    cumulative CSCC against the the cumulative country population, to highlight the level of heterogeneity of the CSCC.
-                    The <b>Map</b> plots the bubbles according to their location in longitude and latitude.
+                    66.7% confidence interval size (see <a href="#uncertainty">Uncertainty</a> below). 
+                    The <b>Global</b> view shows
+                    the aggregation of the bubbles in two groups positive and negative CSCC. 
+                    The <b>Lorenz curve</b> presents the 
+                    cumulative CSCC against the the cumulative country population, to highlight 
+                    the level of heterogeneity of the CSCC.
+                    The <b>Map</b> plots the bubbles according to their location 
+                    in longitude and latitude.
                 </p>
 
                 <p>
@@ -127,7 +139,7 @@
                         s41558-018-0282-y</a>.
                         The database is available as supplementary material of the paper.
                   Interactive Figures from the paper are available at
-                  <a target="_blank" href="http://country-level-scc.github.io/figures">http://country-level-scc.github.io/figures</a>.
+                  <a target="_blank" href="http://country-level-scc.github.io/cscc-web-2018/">http://country-level-scc.github.io/cscc-web-2018</a>.
                 </p>
 
                 <p>
@@ -141,10 +153,14 @@
                 <h3>Future projection</h3>
 
                 <p>Country-level population and GDP projections are issued from the
-                        <a target="_blank" href="https://tntcat.iiasa.ac.at/SspDb">Shared Socioeconomic Pathways (SSP) database</a>. Gridded climate projections are based on the
-                        <a target="_blank" href="https://tntcat.iiasa.ac.at/RcpDb">Representative Concentration Pathways (RCP)</a> and were generated by climate
+                        <a target="_blank" href="https://tntcat.iiasa.ac.at/SspDb">Shared 
+                            Socioeconomic Pathways (SSP) database</a>. Gridded climate 
+                            projections are based on the
+                        <a target="_blank" href="https://tntcat.iiasa.ac.at/RcpDb">Representative 
+                            Concentration Pathways (RCP)</a> and were generated by climate
                          models participating to <a href="https://cmip.llnl.gov/cmip5/" target="_blank">CMIP5</a>.
-                        By default, the SSP  are projected along with the closest RCP in terms of radiative forcing.
+                        By default, the SSP  are projected along with the closest RCP in terms of 
+                        radiative forcing.
                     </p>
 
                     <img class="methodology" src="img/rcp.png" alt="SSP/RCP mapping">
@@ -153,15 +169,19 @@
 
                 <p>
                     The database contains four specifications of the damage function
-                    (see ref. <a href="https://www.nature.com/articles/nature15725" target="_blank">Burke, Hsiang and Miguel, 2015</a> (BHM)).
+                    (see ref. <a href="https://www.nature.com/articles/nature15725" target="_blank">Burke, 
+                        Hsiang and Miguel, 2015</a> (BHM)).
                     They are listed in the Table below.
     
-                    The <b>Short-run</b> specifications takes into account the temperature effects from the one year to the previous year, while 
+                    The <b>Short-run</b> specifications takes into account the temperature effects from the 
+                    one year to the previous year, while 
                     <b>Long-run</b> it is over the 5 previous years.
 
-                    A variant <b>Rich/Poor</b> distinguishes the effect between rich and poor countries. By default, all countries are considered in one pool.
+                    A variant <b>Rich/Poor</b> distinguishes the effect between rich and poor countries. 
+                    By default, all countries are considered in one pool.
                     
-                    Note that the specifications do not have the same statistical robustness and the is refected in the reported uncertainty range. 
+                    Note that the specifications do not have the same statistical robustness and the is 
+                    refected in the reported uncertainty range. 
                 </p>
 
                 <div class="table">
@@ -218,11 +238,16 @@
 
     <div id="footer" >
         <div id="credentials">
+                <a href="https://www.eiee.org" target="_blank"><img 
+                class="flag"
+                src="img/EIEE_Logo_540x198-300x110.png" 
+                alt="EU"
+                height="110px" /></a>
                 <img 
                 class="flag"
                 src="img/Flag_of_Europe.svg" 
                 alt="EU"
-                width="100px" />
+                height="95px" />
             This page project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 642147 (CD-LINKS). <br/>
         </div>
         <div id="version">
